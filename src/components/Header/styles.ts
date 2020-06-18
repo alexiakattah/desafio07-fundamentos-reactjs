@@ -5,7 +5,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  background: #5636d3;
+  background: ${({ theme }) => theme.colors.blue};
   padding: 30px 0;
 
   header {
@@ -22,6 +22,17 @@ export const Container = styled.div<ContainerProps>`
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.2s;
+        position: relative;
+
+        &.active::after {
+          content: '';
+          position: absolute;
+          height: 2px;
+          background: #ff872c;
+          width: 100%;
+          bottom: -10px;
+          left: 0;
+        }
 
         & + a {
           margin-left: 32px;
